@@ -10,5 +10,14 @@
 
 .cart-count {
     margin-left: 8px;
-    font-size: 18px;
+    font-size: 14px; /* Ajustamos el tamaño de la fuente */
+    background-color: rgb(0, 6, 45); /* Color del fondo del círculo */
+    color: white; /* Color del texto dentro del círculo */
+    border-radius: 50%; /* Hacemos que el contenedor sea circular */
+    padding: 0.2rem 0.5rem; /* Espacio dentro del círculo */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 20px; /* Aseguramos que siempre sea un círculo */
+    height: 20px; /* Tamaño del círculo */
 }
