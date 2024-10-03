@@ -1,0 +1,19 @@
+/* src/components/css/itemlistcontainer.css */
+
+.item-list-container {
+    text-align: center;
+    /* Centra el texto horizontalmente */
+    padding: 2rem;
+    padding-top: 160px;
+    /* Añadimos espacio en la parte superior para evitar que lo tape el navbar */
+}
+
+.item-list-container h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.item-list-container p {
+    font-size: 1.2rem;
+    color: #555;
+}

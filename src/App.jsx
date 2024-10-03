@@ -1,7 +1,8 @@
-// App.jsx
+// src/App.jsx
 
 import React from 'react';
 import Navbar from './components/Navbar'; // Importamos el Navbar
+import ItemListContainer from './components/ItemListContainer'; // Importamos el nuevo componente
 import './App.css'; // Mantén este si tienes algunos estilos globales
 
 function App() {
@@ -9,11 +10,9 @@ function App() {
     <div>
       {/* Usamos el componente Navbar */}
       <Navbar />
-      
-      <main>
-        <h2>Bienvenido a nuestra tienda gourmet</h2>
-        <p>Aquí puedes encontrar los mejores productos de comida internacional.</p>
-      </main>
+
+      {/* Usamos el nuevo componente ItemListContainer */}
+      <ItemListContainer />
     </div>
   );
 }
