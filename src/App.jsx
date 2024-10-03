@@ -8,10 +8,7 @@ import './App.css'; // Mantén este si tienes algunos estilos globales
 function App() {
   return (
     <div>
-      {/* Usamos el componente Navbar */}
       <Navbar />
-
-      {/* Usamos el nuevo componente ItemListContainer */}
       <ItemListContainer />
     </div>
   );
