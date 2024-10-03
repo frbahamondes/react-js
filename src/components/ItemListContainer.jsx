@@ -3,12 +3,12 @@
 import React from 'react';
 import './css/itemlistcontainer.css'; // Importamos los estilos
 
-const ItemListContainer = () => {
+const ItemListContainer = ({ greeting }) => {
     return (
-        <section className="item-list-container">
-            <h2>Bienvenido a nuestra tienda gourmet</h2>
+        <div className="item-list-container">
+            <h2>{greeting}</h2> {/* Aquí usamos la prop "greeting" */}
             <p>Aquí puedes encontrar los mejores productos de comida internacional.</p>
-        </section>
+        </div>
     );
 };
 
