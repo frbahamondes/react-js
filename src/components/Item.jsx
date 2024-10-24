@@ -1,0 +1,1 @@
+// Debería servir para dar forma a cada una de las cards
