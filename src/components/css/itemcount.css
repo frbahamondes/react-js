@@ -1,0 +1,54 @@
+/* src/components/css/itemcount.css */
+
+.item-count-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+}
+
+.count-display {
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #000;
+    /* Color negro para asegurar visibilidad */
+}
+
+.controls-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    /* Espacio entre los botones */
+}
+
+.button-count {
+    background-color: #ff6600;
+    color: white;
+    border: none;
+    padding: 10px;
+    width: 40px;
+    /* Ancho fijo para que ambos botones tengan el mismo tamaño */
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.button-count:hover {
+    background-color: #ff4400;
+}
+
+.add-to-cart-btn {
+    background-color: #008CBA;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.add-to-cart-btn:hover {
+    background-color: #007B9E;
+}
