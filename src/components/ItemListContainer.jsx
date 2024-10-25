@@ -56,7 +56,6 @@ function ItemListContainer({ greeting }) {
             ...prevState,
             [productId]: quantity,
         }));
-        alert(`Agregaste ${quantity} unidades al carrito del producto con ID: ${productId}`);
     };
 
     return (
