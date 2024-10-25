@@ -1,6 +1,5 @@
 // Debería servir para dar forma a cada una de las cards
 
-// src/components/Item.jsx
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import ItemCount from './ItemCount'; // Importamos el contador

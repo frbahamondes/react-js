@@ -1,7 +1,7 @@
 // src/components/ItemList.jsx
 import React from 'react';
-import Item from './Item'; // Importamos el componente Item
-import './css/itemlist.css'; // Asegúrate de tener este archivo CSS
+import Item from './Item'; // Importa el componente Item
+import './css/itemlist.css'; // Importar este archivo CSS
 
 function ItemList({ products, onAddToCart }) { // Recibimos la función como prop
     return (

@@ -27,10 +27,10 @@ function ItemDetailContainer() {
             ...prevState,
             [product.id]: quantity,
         }));
-        // Actualizamos el mensaje de confirmación
+        // Actualizar el mensaje de confirmación
         setConfirmationMessage(`Agregaste ${quantity} unidades de ${product.name} al carrito.`);
 
-        // Limpiamos el mensaje después de 3 segundos
+        // Limpiar el mensaje después de 3 segundos
         setTimeout(() => setConfirmationMessage(''), 3000);
     };
 
