@@ -5,7 +5,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar'; // Importamos el Navbar
 import ItemListContainer from './components/ItemListContainer';
 import ItemCount from './components/ItemCount';
-import Error404 from './components/Error404'; // Importamos el componente Error404
+import Error404 from './components/error404'; // Importamos el componente Error404
 import './App.css';
 
 function App() {
