@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react'; 
 import { useParams } from 'react-router-dom';
 import { products } from '../../data/products';
 import './css/itemlistcontainer.css';
-import ItemCount from './ItemCount'; // Importamos el componente ItemCount
+import ItemList from './ItemList'; // Usamos ItemList
 
 function ItemListContainer({ greeting }) {
     const { categoriaId } = useParams();
@@ -61,26 +61,8 @@ function ItemListContainer({ greeting }) {
             {loading ? (
                 <p>Cargando productos...</p>
             ) : (
-                <div className="product-list">
-                    {filteredProducts.length > 0 ? (
-                        filteredProducts.map((product) => (
-                            <div key={product.id} className="product-item">
-                                <h3>{product.name}</h3>
-                                <img src={product.image} alt={product.name} width="200" />
-                                <p>{product.description}</p>
-                                <p>Precio: ${product.price}</p>
-
-                                {/* Aquí usamos el contador y pasamos la función onAdd */}
-                                <ItemCount
-                                    stock={10}
-                                    initial={0}
-                                    onAdd={(quantity) => handleAddToCart(product.id, quantity)}
-                                />
-                            </div>
-                        ))
-                    ) : (
-                        <p>No hay productos disponibles en esta categoría.</p>
-                    )}
+                <div className="product-list">  {/* Asegúrate de que este div tenga la clase product-list */}
+                    <ItemList products={filteredProducts} onAddToCart={handleAddToCart} /> 
                 </div>
             )}
         </div>
