@@ -6,7 +6,10 @@ import CartWidget from './CartWidget'; // Importamos el CartWidget
 const Navbar = () => {
     return (
         <nav className="navbar">
-            <h1 className="brand">Gourmarket</h1>
+            {/* Cambiamos el <h1> por un <Link> para que lleve al home (/) */}
+            <Link to="/" className="brand">
+                <h1>Gourmarket</h1>
+            </Link>
             <ul className="nav-links">
                 {/* Usamos el componente Link para la navegación interna con las categorías exactas */}
                 <li><Link to="/categoria/Condimentos" className="nav-link">Condimentos</Link></li>
