@@ -1,0 +1,8 @@
+/* src/components/css/itemlist.css */
+.product-list {
+    display: flex;
+    justify-content: center; /* Centra las tarjetas horizontalmente */
+    flex-wrap: wrap; /* Permite que las tarjetas se ajusten automáticamente en múltiples líneas */
+    gap: 20px; /* Añade espacio entre las tarjetas */
+    padding: 20px; /* Añade espacio alrededor */
+}

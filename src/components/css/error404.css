@@ -1,0 +1,31 @@
+/* src/components/css/error404.css */
+
+.error-page {
+    text-align: center;
+    padding: 100px 20px;
+}
+
+.error-page h1 {
+    font-size: 4rem;
+    color: #ff6200;
+    margin-bottom: 20px;
+}
+
+.error-page p {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.back-home-btn {
+    padding: 10px 20px;
+    background-color: #ff6200;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.back-home-btn:hover {
+    background-color: #ff4a00;
+}

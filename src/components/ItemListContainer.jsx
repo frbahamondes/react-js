@@ -8,7 +8,8 @@ function ItemListContainer({ greeting }) {
     const { categoriaId } = useParams();
     const [items, setItems] = useState([]);
     const [loading, setLoading] = useState(true);
-    const [addedProducts, setAddedProducts] = useState({}); // Estado para manejar los productos agregados
+    const [addedProducts, setAddedProducts] = useState({});
+    const [categoryError, setCategoryError] = useState(false); // Nuevo estado para manejar el error de categoría
 
     const getProducts = () => {
         return new Promise((resolve, reject) => {
@@ -21,6 +22,9 @@ function ItemListContainer({ greeting }) {
         });
     };
 
+    // Extraemos las categorías válidas del array de productos
+    const validCategories = [...new Set(products.map(product => product.category.toLowerCase()))];
+
     useEffect(() => {
         setLoading(true);
         getProducts()
@@ -32,16 +36,22 @@ function ItemListContainer({ greeting }) {
                 console.error(error);
                 setLoading(false);
             });
-    }, []);
 
-    // Filtrar los productos por categoría, si hay una seleccionada
-    const filteredProducts = categoriaId
+        // Verificamos si la categoría es válida
+        if (categoriaId && !validCategories.includes(categoriaId.toLowerCase())) {
+            setCategoryError(true);
+        } else {
+            setCategoryError(false);
+        }
+    }, [categoriaId]);
+
+    // Filtrar los productos por categoría, si hay una seleccionada y la categoría es válida
+    const filteredProducts = categoriaId && !categoryError
         ? items.filter(product => product.category.toLowerCase() === categoriaId.toLowerCase())
         : items;
 
     // Función para manejar cuando se agregan productos
     const handleAddToCart = (productId, quantity) => {
-        // Actualizamos el estado con el producto agregado y la cantidad seleccionada
         setAddedProducts((prevState) => ({
             ...prevState,
             [productId]: quantity,
@@ -60,10 +70,13 @@ function ItemListContainer({ greeting }) {
 
             {loading ? (
                 <p>Cargando productos...</p>
-            ) : (
-                <div className="product-list">  {/* Asegúrate de que este div tenga la clase product-list */}
-                    <ItemList products={filteredProducts} onAddToCart={handleAddToCart} /> 
+            ) : categoryError ? (  // Mostramos un error si la categoría es inválida
+                <div>
+                    <h2>Error: Categoría no encontrada</h2>
+                    <p>Lo sentimos, la categoría que buscas no existe.</p>
                 </div>
+            ) : (
+                <ItemList products={filteredProducts} onAddToCart={handleAddToCart} />
             )}
         </div>
     );

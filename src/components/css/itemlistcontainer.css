@@ -2,7 +2,6 @@
 
 .item-list-container {
     text-align: center;
-    /* Centra el texto horizontalmente */
     padding: 2rem;
     padding-top: 160px;
     /* Añadimos espacio en la parte superior para evitar que lo tape el navbar */
@@ -16,4 +15,40 @@
 .item-list-container p {
     font-size: 1.2rem;
     color: #555;
+}
+
+/* Mantén los estilos de la lista de productos */
+.product-list {
+    display: flex;
+    justify-content: center; /* Centra las tarjetas horizontalmente */
+    flex-wrap: wrap; /* Permite que las tarjetas se ajusten automáticamente */
+    gap: 20px; /* Espacio entre las tarjetas */
+}
+
+/* Mantén los estilos de cada tarjeta */
+.product-item {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+/* Estilos de la imagen */
+.product-item img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 15px;
+}
+
+/* Mantén el efecto hover */
+.product-item:hover {
+    transform: scale(1.05);
+}
+
+/* Ajustes en los botones, manteniendo márgenes */
+.button-count, .add-to-cart-btn {
+    margin: 0.5rem;
 }
