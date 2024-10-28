@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom'; // Usamos Link para la navegación interna con React Router
-import './css/Navbar.css'; // Estilos del Navbar
+import './css/navbar.css'; // Estilos del Navbar
 import CartWidget from './CartWidget'; // Importamos el CartWidget
 
 const Navbar = () => {
