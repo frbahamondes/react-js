@@ -5,7 +5,7 @@ export const products = [
         name: "Aceite de Oliva Extra Virgen",
         category: "Condimentos",
         price: 12.99,
-        image: "https://via.placeholder.com/200x200.png?text=Aceite+de+Oliva",  // Imagen de prueba
+        image: "/src/assets/imagenes/productos/aceite-oliva.png",  // Imagen de prueba
         description: "Aceite de oliva de alta calidad, ideal para ensaladas y platillos gourmet.",
     },
     {
@@ -13,7 +13,7 @@ export const products = [
         name: "Sal del Himalaya",
         category: "Condimentos",
         price: 6.50,
-        image: "https://via.placeholder.com/200x200.png?text=Sal+del+Himalaya",  // Imagen de prueba
+        image: "/src/assets/imagenes/productos/sal-himalaya.png",  // Imagen de prueba
         description: "Sal pura de roca del Himalaya, rica en minerales y perfecta para condimentar.",
     },
     {
@@ -21,7 +21,7 @@ export const products = [
         name: "Pimienta Negra Molida",
         category: "Condimentos",
         price: 4.99,
-        image: "https://via.placeholder.com/200x200.png?text=Pimienta+Negra",  // Imagen de prueba
+        image: "/src/assets/imagenes/productos/pimienta-negra.png",  // Imagen de prueba
         description: "Pimienta negra molida fresca, indispensable en cualquier cocina.",
     },
     {
@@ -29,7 +29,7 @@ export const products = [
         name: "Vinagre Balsámico",
         category: "Condimentos",
         price: 10.99,
-        image: "https://via.placeholder.com/200x200.png?text=Vinagre+Balsamico",  // Imagen de prueba
+        image: "/src/assets/imagenes/productos/vinagre-balsamico.png",  // Imagen de prueba
         description: "Vinagre balsámico de Módena, ideal para marinados y ensaladas.",
     },
 
@@ -39,7 +39,7 @@ export const products = [
         name: "Pasta Italiana",
         category: "Ingredientes Internacionales",
         price: 7.99,
-        image: "https://via.placeholder.com/200x200.png?text=Pasta+Italiana",  // Imagen de prueba
+        image: "/src/assets/imagenes/productos/pasta-italiana.png",  // Imagen de prueba
         description: "Pasta auténtica italiana hecha con trigo de la mejor calidad.",
     },
     {
@@ -47,7 +47,7 @@ export const products = [
         name: "Salsa de Soja Japonesa",
         category: "Ingredientes Internacionales",
         price: 5.50,
-        image: "https://via.placeholder.com/200x200.png?text=Salsa+de+Soja",  // Imagen de prueba
+        image: "/src/assets/imagenes/productos/salsa-soya.png",  // Imagen de prueba
         description: "Salsa de soja fermentada, tradicionalmente usada en la cocina japonesa.",
     },
     {
@@ -55,7 +55,7 @@ export const products = [
         name: "Queso Parmesano Reggiano",
         category: "Ingredientes Internacionales",
         price: 15.99,
-        image: "https://via.placeholder.com/200x200.png?text=Queso+Parmesano",  // Imagen de prueba
+        image: "/src/assets/imagenes/productos/queso-parmesano.png",  // Imagen de prueba
         description: "Queso parmesano italiano, perfecto para rallar sobre tus platos de pasta.",
     },
     {
@@ -63,7 +63,7 @@ export const products = [
         name: "Arroz Basmati",
         category: "Ingredientes Internacionales",
         price: 4.99,
-        image: "https://via.placeholder.com/200x200.png?text=Arroz+Basmati",  // Imagen de prueba
+        image: "/src/assets/imagenes/productos/arroz-basmati.png",  // Imagen de prueba
         description: "Arroz basmati de grano largo, ideal para acompañar curries y platos exóticos.",
     },
 
@@ -73,7 +73,7 @@ export const products = [
         name: "Chocolate Belga 70% Cacao",
         category: "Dulces Gourmet",
         price: 9.99,
-        image: "https://via.placeholder.com/200x200.png?text=Chocolate+Belga",  // Imagen de prueba
+        image: "/src/assets/imagenes/productos/chocolate-belga.png",  // Imagen de prueba
         description: "Chocolate amargo de calidad superior, con un 70% de cacao puro.",
     },
     {
@@ -81,7 +81,7 @@ export const products = [
         name: "Macarons Franceses",
         category: "Dulces Gourmet",
         price: 14.99,
-        image: "https://via.placeholder.com/200x200.png?text=Macarons",  // Imagen de prueba
+        image: "/src/assets/imagenes/productos/macarons-franceses.png",  // Imagen de prueba
         description: "Deliciosos macarons franceses en una variedad de sabores exquisitos.",
     },
     {
@@ -89,7 +89,7 @@ export const products = [
         name: "Turrón de Jijona",
         category: "Dulces Gourmet",
         price: 12.00,
-        image: "https://via.placeholder.com/200x200.png?text=Turron+de+Jijona",  // Imagen de prueba
+        image: "/src/assets/imagenes/productos/turron-jijona.png",  // Imagen de prueba
         description: "Turrón blando español hecho con almendras y miel, un manjar navideño.",
     },
     {
@@ -97,7 +97,7 @@ export const products = [
         name: "Caramelos Artesanales de Miel",
         category: "Dulces Gourmet",
         price: 5.50,
-        image: "https://via.placeholder.com/200x200.png?text=Caramelos+de+Miel",  // Imagen de prueba
+        image: "/src/assets/imagenes/productos/caramelos-miel.png",  // Imagen de prueba
         description: "Caramelos dulces elaborados con miel natural, ideales para regalar.",
     },
 ];
