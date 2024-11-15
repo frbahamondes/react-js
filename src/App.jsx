@@ -7,6 +7,7 @@ import ItemListContainer from './components/ItemListContainer';
 import ItemCount from './components/ItemCount';
 import ItemDetailContainer from './components/ItemDetailContainer'; // Nuevo componente de detalle
 import Error404 from './components/Error404';
+import Cart from './components/Cart'; // Importa el componente Cart
 import './App.css';
 
 function App() {
@@ -17,8 +18,9 @@ function App() {
       <Routes>
         <Route path="/" element={<ItemListContainer greeting="Bienvenido a nuestra tienda gourmet" />} />
         <Route path="/categoria/:categoriaId" element={<ItemListContainer greeting="Productos por categoría" />} />
-        <Route path="/producto/:productoId" element={<ItemDetailContainer />} /> {/* Nueva ruta */}
+        <Route path="/producto/:productoId" element={<ItemDetailContainer />} /> {/* Ruta para el detalle del producto */}
         <Route path="/contador" element={<ItemCount />} />
+        <Route path="/cart" element={<Cart />} /> {/* Nueva ruta para el carrito */}
         <Route path="*" element={<Error404 />} />
       </Routes>
     </BrowserRouter>
