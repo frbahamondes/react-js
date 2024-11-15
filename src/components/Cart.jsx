@@ -1,10 +1,10 @@
 // src/components/Cart.jsx
 import React, { useContext } from 'react';
 import { CartContext } from '../context/CartContext';
-import './css/cart.css'; // Asegúrate de crear este archivo de estilos
+import './css/cart.css';
 
 const Cart = () => {
-    const { cart, removeItem, clearCart, getCartItemCount } = useContext(CartContext);
+    const { cart, removeItem, clearCart, getCartItemCount, incrementItem, decrementItem } = useContext(CartContext);
 
     // Calculamos el total del carrito
     const cartTotal = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
@@ -22,9 +22,13 @@ const Cart = () => {
                                 <img src={item.image} alt={item.name} className="cart-item-image" />
                                 <div>
                                     <h3>{item.name}</h3>
-                                    <p>Cantidad: {item.quantity}</p>
+                                    <div className="quantity-controls">
+                                        <button onClick={() => decrementItem(item.id)}>-</button>
+                                        <span>{item.quantity}</span>
+                                        <button onClick={() => incrementItem(item.id)}>+</button>
+                                    </div>
                                     <p>Precio: ${item.price}</p>
-                                    <p>Subtotal: ${item.price * item.quantity}</p>
+                                    <p>Subtotal: ${(item.price * item.quantity).toFixed(2)}</p>
                                     <button onClick={() => removeItem(item.id)} className="remove-item-btn">Eliminar</button>
                                 </div>
                             </li>
