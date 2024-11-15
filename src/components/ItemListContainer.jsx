@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react'; 
+import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { products } from '../../data/products';
+import { collection, getDocs, query, where } from 'firebase/firestore';
+import { db } from '../firebaseConfig'; // Asegúrate de tener db importado desde tu configuración de Firestore
 import './css/itemlistcontainer.css';
 import ItemList from './ItemList'; // Usamos ItemList
 
@@ -8,55 +9,42 @@ function ItemListContainer({ greeting }) {
     const { categoriaId } = useParams();
     const [items, setItems] = useState([]);
     const [loading, setLoading] = useState(true);
-    const [addedProducts, setAddedProducts] = useState({});
-    const [categoryError, setCategoryError] = useState(false); // Nuevo estado para manejar el error de categoría
-
-    const getProducts = () => {
-        return new Promise((resolve, reject) => {
-            if (products.length === 0) {
-                reject('El array de productos está vacío');
-            }
-            setTimeout(() => {
-                resolve(products);
-            }, 2000);
-        });
-    };
-
-    // Extraemos las categorías válidas del array de productos
-    const validCategories = [...new Set(products.map(product => product.category.toLowerCase()))];
+    const [categoryError, setCategoryError] = useState(false);
 
     useEffect(() => {
-        setLoading(true);
-        getProducts()
-            .then((response) => {
-                setItems(response);
-                setLoading(false);
-            })
-            .catch((error) => {
-                console.error(error);
-                setLoading(false);
-            });
+        const fetchProducts = async () => {
+            setLoading(true);
 
-        // Verificamos si la categoría es válida
-        if (categoriaId && !validCategories.includes(categoriaId.toLowerCase())) {
-            setCategoryError(true);
-        } else {
-            setCategoryError(false);
-        }
+            try {
+                const productsCollection = collection(db, "productos");
+                
+                let productsQuery;
+                if (categoriaId) {
+                    // Filtra los productos por categoría si `categoriaId` está definido
+                    productsQuery = query(productsCollection, where("category", "==", categoriaId));
+                } else {
+                    // Obtiene todos los productos si `categoriaId` no está definido
+                    productsQuery = productsCollection;
+                }
+
+                const querySnapshot = await getDocs(productsQuery);
+                const productsData = querySnapshot.docs.map((doc) => ({
+                    id: doc.id,
+                    ...doc.data(),
+                }));
+
+                setItems(productsData);
+                setCategoryError(productsData.length === 0 && categoriaId); // Muestra un error si la categoría está vacía
+            } catch (error) {
+                console.error("Error al obtener los productos:", error);
+                setCategoryError(true);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchProducts();
     }, [categoriaId]);
-
-    // Filtrar los productos por categoría, si hay una seleccionada y la categoría es válida
-    const filteredProducts = categoriaId && !categoryError
-        ? items.filter(product => product.category.toLowerCase() === categoriaId.toLowerCase())
-        : items;
-
-    // Función para manejar cuando se agregan productos
-    const handleAddToCart = (productId, quantity) => {
-        setAddedProducts((prevState) => ({
-            ...prevState,
-            [productId]: quantity,
-        }));
-    };
 
     return (
         <div className="item-list-container">
@@ -69,13 +57,13 @@ function ItemListContainer({ greeting }) {
 
             {loading ? (
                 <p>Cargando productos...</p>
-            ) : categoryError ? (  // Mostramos un error si la categoría es inválida
+            ) : categoryError ? (
                 <div>
                     <h2>Error: Categoría no encontrada</h2>
                     <p>Lo sentimos, la categoría que buscas no existe.</p>
                 </div>
             ) : (
-                <ItemList products={filteredProducts} onAddToCart={handleAddToCart} />
+                <ItemList products={items} />
             )}
         </div>
     );

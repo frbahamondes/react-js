@@ -1,37 +1,45 @@
-import React, { useState, useEffect } from 'react';
+// src/components/ItemDetailContainer.jsx
+
+import React, { useState, useEffect, useContext } from 'react';
 import { useParams } from 'react-router-dom';
-import { products } from '../../data/products';
-import './css/itemdetailcontainer.css';
+import { db } from '../firebaseConfig';
+import { doc, getDoc } from 'firebase/firestore';
 import ItemCount from './ItemCount';
+import { CartContext } from '../context/CartContext'; // Importamos el contexto del carrito
+import './css/itemdetailcontainer.css';
 
 function ItemDetailContainer() {
     const { productoId } = useParams();
     const [product, setProduct] = useState(null);
     const [loading, setLoading] = useState(true);
-    const [addedProducts, setAddedProducts] = useState({});
-    const [confirmationMessage, setConfirmationMessage] = useState(''); // Nuevo estado para el mensaje
+    const [confirmationMessage, setConfirmationMessage] = useState('');
+    const { addItem } = useContext(CartContext); // Obtenemos la función addItem del contexto
 
     useEffect(() => {
-        const getProduct = () => {
-            const foundProduct = products.find(p => p.id === parseInt(productoId));
-            setProduct(foundProduct);
+        const getProduct = async () => {
+            const docRef = doc(db, "productos", productoId);
+            const docSnap = await getDoc(docRef);
+
+            if (docSnap.exists()) {
+                setProduct({ id: docSnap.id, ...docSnap.data() });
+            } else {
+                console.log("No se encontró el producto");
+            }
             setLoading(false);
         };
 
         setLoading(true);
-        setTimeout(getProduct, 1000);
+        getProduct();
     }, [productoId]);
 
     const handleAddToCart = (quantity) => {
-        setAddedProducts((prevState) => ({
-            ...prevState,
-            [product.id]: quantity,
-        }));
-        // Actualizar el mensaje de confirmación
-        setConfirmationMessage(`Agregaste ${quantity} unidades de ${product.name} al carrito.`);
+        if (product) {
+            addItem(product, quantity); // Usamos la función del contexto para agregar el producto
 
-        // Limpiar el mensaje después de 3 segundos
-        setTimeout(() => setConfirmationMessage(''), 3000);
+            // Mensaje de confirmación
+            setConfirmationMessage(`Agregaste ${quantity} unidades de ${product.name} al carrito.`);
+            setTimeout(() => setConfirmationMessage(''), 3000);
+        }
     };
 
     if (loading) {
