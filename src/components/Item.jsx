@@ -1,15 +1,17 @@
-// Debería servir para dar forma a cada una de las cards
+// src/components/Item.jsx
 
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
-import ItemCount from './ItemCount'; // Importamos el contador
-import './css/item.css'; // Asegúrate de tener el archivo de estilos item.css
+import ItemCount from './ItemCount';
+import './css/item.css';
+import { CartContext } from '../context/CartContext'; // Importamos el contexto del carrito
 
-function Item({ product, onAddToCart }) {
-    const [confirmationMessage, setConfirmationMessage] = useState(''); // Estado para el mensaje
+function Item({ product }) {
+    const [confirmationMessage, setConfirmationMessage] = useState('');
+    const { addItem } = useContext(CartContext); // Obtenemos la función addItem del contexto
 
     const handleAdd = (quantity) => {
-        onAddToCart(product.id, quantity);
+        addItem(product, quantity); // Usamos la función del contexto para agregar el producto
 
         // Mostrar mensaje de confirmación dentro de la tarjeta
         setConfirmationMessage(`Agregaste ${quantity} unidades de ${product.name} al carrito.`);
