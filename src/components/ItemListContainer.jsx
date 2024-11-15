@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { collection, getDocs, query, where } from 'firebase/firestore';
-import { db } from '../firebaseConfig'; // Asegúrate de tener db importado desde tu configuración de Firestore
+import { db } from '../firebaseConfig'; 
 import './css/itemlistcontainer.css';
-import ItemList from './ItemList'; // Usamos ItemList
+import ItemList from './ItemList'; 
 
 function ItemListContainer({ greeting }) {
     const { categoriaId } = useParams();
@@ -20,10 +20,9 @@ function ItemListContainer({ greeting }) {
                 
                 let productsQuery;
                 if (categoriaId) {
-                    // Filtra los productos por categoría si `categoriaId` está definido
+                    
                     productsQuery = query(productsCollection, where("category", "==", categoriaId));
                 } else {
-                    // Obtiene todos los productos si `categoriaId` no está definido
                     productsQuery = productsCollection;
                 }
 

@@ -13,11 +13,9 @@ function Item({ product }) {
     const handleAdd = (quantity) => {
         addItem(product, quantity); // Usamos la función del contexto para agregar el producto
 
-        // Mostrar mensaje de confirmación dentro de la tarjeta
         setConfirmationMessage(`Agregaste ${quantity} unidades de ${product.name} al carrito.`);
 
-        // Limpiar el mensaje después de 3 segundos
-        setTimeout(() => setConfirmationMessage(''), 3000);
+        setTimeout(() => setConfirmationMessage(''), 2000);
     };
 
     return (

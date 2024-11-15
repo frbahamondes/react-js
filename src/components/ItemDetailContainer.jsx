@@ -5,7 +5,7 @@ import { useParams } from 'react-router-dom';
 import { db } from '../firebaseConfig';
 import { doc, getDoc } from 'firebase/firestore';
 import ItemCount from './ItemCount';
-import { CartContext } from '../context/CartContext'; // Importamos el contexto del carrito
+import { CartContext } from '../context/CartContext'; 
 import './css/itemdetailcontainer.css';
 
 function ItemDetailContainer() {
@@ -13,7 +13,7 @@ function ItemDetailContainer() {
     const [product, setProduct] = useState(null);
     const [loading, setLoading] = useState(true);
     const [confirmationMessage, setConfirmationMessage] = useState('');
-    const { addItem } = useContext(CartContext); // Obtenemos la función addItem del contexto
+    const { addItem } = useContext(CartContext); 
 
     useEffect(() => {
         const getProduct = async () => {
@@ -34,7 +34,7 @@ function ItemDetailContainer() {
 
     const handleAddToCart = (quantity) => {
         if (product) {
-            addItem(product, quantity); // Usamos la función del contexto para agregar el producto
+            addItem(product, quantity);
 
             // Mensaje de confirmación
             setConfirmationMessage(`Agregaste ${quantity} unidades de ${product.name} al carrito.`);

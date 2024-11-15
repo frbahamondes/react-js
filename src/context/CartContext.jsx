@@ -5,7 +5,7 @@ import React, { createContext, useState } from 'react';
 export const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
-    const [cart, setCart] = useState([]); // Estado del carrito, un array de productos
+    const [cart, setCart] = useState([]); 
 
     // Función para agregar un producto al carrito
     const addItem = (product, quantity) => {

@@ -22,10 +22,8 @@ const CheckoutForm = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         
-        // Aquí podrías enviar la información a una base de datos
         console.log("Order Info:", { buyer: buyerInfo, items: cart });
         
-        // Limpiar el carrito y mostrar un mensaje de confirmación
         clearCart();
         setOrderSent(true);
     };

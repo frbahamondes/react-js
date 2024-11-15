@@ -1,7 +1,7 @@
 // src/components/Error404.jsx
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './css/error404.css'; // Asegúrate de tener un archivo de estilos separado para esta página
+import './css/error404.css'; 
 
 function Error404() {
     return (

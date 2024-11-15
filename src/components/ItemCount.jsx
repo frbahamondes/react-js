@@ -1,8 +1,8 @@
 // src/components/ItemCount.jsx
 import { useState } from 'react';
-import './css/itemcount.css';  // Asegurarme de que la ruta sea correcta
+import './css/itemcount.css';  
 
-function ItemCount({ stock = 10, initial = 0, onAdd }) {  // Añadí props para mayor flexibilidad
+function ItemCount({ stock = 10, initial = 0, onAdd }) {  
     const [count, setCount] = useState(initial);
 
     const handleAdd = () => {
